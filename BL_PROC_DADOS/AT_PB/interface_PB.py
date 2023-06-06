@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 import sqlite3
 import ctypes as ct
 import pandas as pd
@@ -11,6 +10,7 @@ pd.options.display.max_rows = None
 # conexao com db
 cnx_path = 'C:\\PB\\data\\PB_Tabela.db'
 
+# funcoes para os botões
 def consulta_tabela():
     result_text.delete("1.0", "end-1c") # Deletar texto do result 
     cnx = sqlite3.connect(cnx_path) # conexao com db
@@ -83,6 +83,7 @@ def contar_itens():
         else:
             result_text.insert(tk.END, f"Casas com a Garagem '{categoria}' constam {quantidade} vezes na lista.\n")
 
+#botões linkedin e github
 def linkedin():
         webbrowser.open_new(r"https://www.linkedin.com/in/ericfguimaraes/")
 def github():
@@ -110,42 +111,45 @@ frame.pack(pady=10)
 
 
 
-button1 = tk.Button(frame, text="10 - Consultar Tabela(apresentar o conteúdo das variáveis)", width=70, height=1, command=consulta_tabela)
-button1.grid(row=0, column=0, padx=10, pady=5)
+btn_ex10 = tk.Button(frame, text="10 - Consultar Tabela(apresentar o conteúdo das variáveis)", width=70, height=1, command=consulta_tabela)
+btn_ex10.grid(row=0, column=0, padx=10, pady=5)
 
-button2 = tk.Button(frame, text="11 - Consultar Valores(apresentar valores máximo, mínimo e médio)", width=70, height=1, command=consulta_valores)
-button2.grid(row=1, column=0, padx=10, pady=5)
+btn_ex11 = tk.Button(frame, text="11 - Consultar Valores(apresentar valores máximo, mínimo e médio)", width=70, height=1, command=consulta_valores)
+btn_ex11.grid(row=1, column=0, padx=10, pady=5)
 
-button3 = tk.Button(frame, text="12 - Consultar Itens(apresentar listagem de item único da variável)", width=70, height=1, command=consulta_itens)
-button3.grid(row=2, column=0, padx=10, pady=5)
+btn_ex12 = tk.Button(frame, text="12 - Consultar Itens(apresentar listagem de item único da variável)", width=70, height=1, command=consulta_itens)
+btn_ex12.grid(row=2, column=0, padx=10, pady=5)
 
-button4 = tk.Button(frame, text="13 - Criar Lista contendo os dados da variável numérica(Lot_Area)", width=70, height=1, command=consultar_lista_num)
-button4.grid(row=3, column=0, padx=10, pady=5)
+btn_ex13 = tk.Button(frame, text="13 - Criar Lista contendo os dados da variável numérica(Lot_Area)", width=70, height=1, command=consultar_lista_num)
+btn_ex13.grid(row=3, column=0, padx=10, pady=5)
 
-button5 = tk.Button(frame, text="14 - Criar Lista contendo os dados da variável categórica(Garage_Type)", width=70, height=1, command=consultar_lista_categoria)
-button5.grid(row=4, column=0, padx=10, pady=5)
+btn_ex14 = tk.Button(frame, text="14 - Criar Lista contendo os dados da variável categórica(Garage_Type)", width=70, height=1, command=consultar_lista_categoria)
+btn_ex14.grid(row=4, column=0, padx=10, pady=5)
 
-button6 = tk.Button(frame, text="15 - Calcular soma dos valores acima da média dos valores da própria variável", width=70, height=1, command=calcular_soma)
-button6.grid(row=5, column=0, padx=10, pady=5)
+btn_ex15 = tk.Button(frame, text="15 - Calcular soma dos valores acima da média dos valores da própria variável", width=70, height=1, command=calcular_soma)
+btn_ex15.grid(row=5, column=0, padx=10, pady=5)
 
-button7 = tk.Button(frame, text="16 - Contar ocorrência dos itens individuais da variável categórica(Garage_Type)", width=70, height=1, command=contar_itens)
-button7.grid(row=6, column=0, padx=10, pady=5)
+btn_ex16 = tk.Button(frame, text="16 - Contar ocorrência dos itens individuais da variável categórica(Garage_Type)", width=70, height=1, command=contar_itens)
+btn_ex16.grid(row=6, column=0, padx=10, pady=5)
 
-btn_github = tk.Button(root, text="GitHub", command=github)
+btn_github = tk.Button(root, text="GitHub", bg="#24292f", fg="white", command=github)
 btn_github.place(x=860,y=650,width=60,height=20)
 
-btn_linkedin = tk.Button(root, text="Linkedin", command=linkedin)
+btn_linkedin = tk.Button(root, text="Linkedin", bg="#0e76a8", fg="white", command=linkedin)
 btn_linkedin.place(x=930,y=650,width=60,height=20)
 
 
+#scroll_bar = tk.Scrollbar(root)
+#scroll_bar.pack(side=RIGHT, fill=y)
 
+#result_text = tk.Text(root, height=20, width=150, yscrollcommand=scroll_bar.set, wrap="none")
 result_text = tk.Text(root, height=20, width=150)
 result_text.pack(padx=60, pady=25)
 #result_text.place(x=720,y=50,width=500,height=250)
 
 
 footer = tk.Label(
-    text="Este projeto é apenas para fins acadêmicos.\nIdealizado para mostrar as competências de matérias da faculdade, seu uso comercial não é permitido.\nEric F Guimaraes © - 2023",
+    text="Este projeto é apenas para fins acadêmicos.\nIdealizado para mostrar as competências de matérias da faculdade, seu uso comercial não é permitido.\nAssessment - Eric F Guimaraes © - 2023",
     fg="white",
     bg="#154c79",
     width=190,
