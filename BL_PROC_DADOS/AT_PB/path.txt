@@ -1,0 +1,3 @@
+cnx_path = 'C:\\PB\\data\\PB_Tabela.db'
+
+C:\PB\
