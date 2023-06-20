@@ -1,0 +1,6 @@
+frente 5
+baixo 5
+frente 8
+cima 3
+baixo 8
+frente 2
