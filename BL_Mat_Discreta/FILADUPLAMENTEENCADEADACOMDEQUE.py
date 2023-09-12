@@ -1,46 +1,45 @@
 from collections import deque
 
+def add_letra(fila, letra):
+    fila.append(letra)
+    print(f'Adicionando {letra}: {fila}')
+
+def add_letra_inicio(fila, letra):
+    fila.appendleft(letra)
+    print(f'Adicionando {letra}: {fila}')
+
+def remover_letra(fila):
+    if fila:
+        letra = fila.popleft()
+        print(f'Retirando letra: {letra}')
+    else:
+        print("Lista vazia!")
+
 fila = deque()
 
-fila.append("A")
-fila.append("B")
-fila.append("C")
-fila.append("D")
-fila.append("E")
-fila.append("F")
-fila.append("G")
+#adicionando letras na fila
+add_letra(fila, "A")
+add_letra(fila, "B")
+add_letra(fila, "C")
+add_letra(fila, "D")
+add_letra(fila, "E")
+add_letra(fila, "F")
+add_letra(fila, "G")
+print(fila)
 
-# Mostra fila
-if fila:
-    print(f'Fila atual: {fila}\n')
-else:
-    print("Lista vazia!")
+remover_letra(fila)
 
-print(f'Retirando: {fila.popleft()}')
+print(f'Retirando último: {fila.pop()}')
+print(fila)
 
-# Mostra fila
-if fila:
-    print(f'Fila atual: {fila}\n')
-else:
-    print("Lista vazia!")
+#adicionando mais letras na fila
+add_letra(fila, "H")
+add_letra(fila, "J")
+add_letra_inicio(fila, "K")
+add_letra_inicio(fila, "L")
+print(fila)
 
-#fila.append("D")
-print(f'Retirando: {fila.popleft()}')
-print(f'adicionando E: {fila.append("E")}')
-print(f'adicionando F: {fila.append("F")}')
-#fila.append("F")
-
-# Mostra fila
-if fila:
-    print(f'Fila atual: {fila}\n')
-else:
-    print("Lista vazia!")
-
-# Dando clear na fila
+#limpando fila
 fila.clear()
-
-# Mostra fila
-if fila:
-    print(f'Fila atual: {fila}\n')
-else:
-    print("Lista vazia!")
+print(fila)
+remover_letra(fila)
